@@ -7,6 +7,8 @@ __pycache__/
 venv/
 env/
 
+
+
 # Ignore IDE files
 .vscode/
 .idea/
@@ -14,3 +16,9 @@ env/
 # Ignore operating system files
 .DS_Store  # macOS
 Thumbs.db  # Windows
+
+# Ignore everything in the target/debug directory
+target/debug/*
+
+# Exclude SendmeInterface.exe from being ignored
+!target/debug/SendmeInterface.exe

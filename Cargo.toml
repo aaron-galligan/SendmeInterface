@@ -1,6 +1,17 @@
 [package]
-name = "SendmeInterface"
+name = "sendme_module"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+pyo3 = { version = "0.17", features = ["extension-module"] }
+
+[lib]
+name = "sendme_module"
+crate-type = ["cdylib"]
+
+[profile.dev]
+incremental = true
+
+[profile.release]
+incremental = true
