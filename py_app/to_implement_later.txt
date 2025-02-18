@@ -1,0 +1,3 @@
+BLOBS: for now just assume files are small
+later i will deal with big files and blobing them.
+try using the blobs package.
