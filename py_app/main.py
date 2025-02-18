@@ -3,6 +3,7 @@ from iroh import Iroh, PublicKey, NodeAddr, AuthorId, Query, SortBy, SortDirecti
 import argparse
 import asyncio
 import tempfile
+import os
 
 
 async def main():
@@ -37,11 +38,11 @@ async def main():
 
         # add data to doc
         #file_name = input("Enter file name with file extention (file must be in same folder as main): ")
-        #file_name = "C:/Users/aaron/OneDrive/Documents/Programming/Rust/SendmeInterface/py_app/flag.png"
-        file_name = "./py_app/flag.png"
+        file_path = "C:/Users/aaron/OneDrive/Documents/Programming/Rust/SendmeInterface/py_app/flag.png"
+        file_name = os.path.basename(file_path)
         
         #print(file_name)
-        with open(file_name, "rb") as f:
+        with open(file_path, "rb") as f:
             bytes = bytearray(f.read())
         await doc.set_bytes(author, file_name.encode('utf-8'), bytes)
         print("Created doc: {}".format(doc_id))
