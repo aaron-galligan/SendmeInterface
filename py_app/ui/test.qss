@@ -1,0 +1,35 @@
+/* Set the main window background color */
+QMainWindow {
+    background-color: #121212;
+    color: white;
+}
+
+/* Style the sidebar */
+QFrame {
+    background-color: #1E1E1E;
+    border-radius: 10px;
+}
+
+/* Style buttons */
+QPushButton {
+    background-color: #252525;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+QPushButton:hover {
+    background-color: #333;
+}
+
+QPushButton:pressed {
+    background-color: #444;
+}
+
+/* Style labels */
+QLabel {
+    font-size: 16px;
+    color: white;
+}

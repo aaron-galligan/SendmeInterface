@@ -1,12 +1,9 @@
 # tests that correspond to the `src/doc.rs` rust api
 from iroh import Iroh, PublicKey, NodeAddr, AuthorId, Query, SortBy, SortDirection, QueryOptions, path_to_key, key_to_path, NodeOptions
-import pytest
 import tempfile
 import os
-import random
 import asyncio
 import iroh
-import keyboard
 
 """
 This is code taken from n0-computer/iroh-ffi https://github.com/n0-computer/iroh-ffi/blob/main/python/doc_test.py#L93
@@ -95,7 +92,7 @@ def test_query():
     assert 0 == key_prefix.offset()
     assert 100 == key_prefix.limit()
 
-@pytest.mark.asyncio
+
 async def test_doc_entry_basics():
     # setup event loop, to ensure async callbacks work
     iroh.iroh_ffi.uniffi_set_event_loop(asyncio.get_running_loop())
@@ -125,7 +122,7 @@ async def test_doc_entry_basics():
     got_val = await node.blobs().read_to_bytes(entry.content_hash())
     assert val == got_val
 
-@pytest.mark.asyncio
+
 async def test_doc_import_export():
     # setup event loop, to ensure async callbacks work
     iroh.iroh_ffi.uniffi_set_event_loop(asyncio.get_running_loop())
@@ -161,8 +158,6 @@ async def test_doc_import_export():
     options.enable_docs = True
     node = await Iroh.persistent_with_options(iroh_dir.name, options)
     #
-    print("Press any key to continue with the test...")
-    await asyncio.get_event_loop().run_in_executor(None, keyboard.read_event)
 
 
 
