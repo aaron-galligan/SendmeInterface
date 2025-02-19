@@ -1,7 +1,7 @@
 import sys
-from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QIcon
-from PyQt6.QtWidgets import (
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton, 
     QLabel, QHBoxLayout, QStackedWidget, QFrame
 )
@@ -29,6 +29,7 @@ class MainWindow(QMainWindow):
         self.btn_settings = QPushButton("Settings")
         self.btn_about = QPushButton("About")
         
+        #stacks all the buttons in the sidebar layout
         for btn in (self.btn_home, self.btn_settings, self.btn_about):
             sidebar_layout.addWidget(btn)
 
@@ -63,7 +64,7 @@ class MainWindow(QMainWindow):
         self.btn_settings.clicked.connect(lambda: self.stack.setCurrentWidget(self.page_settings))
         self.btn_about.clicked.connect(lambda: self.stack.setCurrentWidget(self.page_about))
 
-        # Add widgets to main layout
+        # Add widgets to main layout (main_layout is a QHBoxLayout)
         main_layout.addWidget(self.sidebar)
         main_layout.addWidget(self.stack)
 
